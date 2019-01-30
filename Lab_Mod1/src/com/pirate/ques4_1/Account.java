@@ -11,14 +11,23 @@ public class Account {
 	}
 
 	public void deposite(double bal) {
-		double newBal = 0;
-		newBal += getBalance();
+		balance += bal;
 	}
 	
 	public void withdraw(double bal) {
-		
+		if(balance >= 500 && bal <= balance) {
+			balance -= bal;					
+		}
+		else {
+			System.out.println("Insufficient Balance\n");
+		}
 	}
 	
+	@Override
+	public String toString() {
+		return "Account No: " + accNo + "\nbalance: " + balance + "Rs.\n";
+	}
+
 	public long getAccNo() {
 		return accNo;
 	}

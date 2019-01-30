@@ -1,36 +1,31 @@
-package com.pirate.ques4_2;
+package ques5_3.com.pirate;
 
-public class Account {
+public abstract class Account {
 	private long accNo;
-	protected double balance;
-	private String name;
-	private float age;
+	private double balance;
 	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public float getAge() {
-		return age;
-	}
-
-	public void setAge(float age) {
-		this.age = age;
-	}
-
 	public Account(long accNo, double balance) {
 		super();
 		this.accNo = accNo;
 		this.balance = balance;
 	}
 
+	public void deposite(double bal) {
+		balance += bal;
+	}
+	
 	public void withdraw(double bal) {
-		balance -= bal;
-		System.out.println(balance);
+		if(balance >= 500 && bal <= balance) {
+			balance -= bal;					
+		}
+		else {
+			System.out.println("Insufficient Balance\n");
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return "Account No: " + accNo + "\nbalance: " + balance + "Rs.\n";
 	}
 
 	public long getAccNo() {
@@ -48,5 +43,6 @@ public class Account {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-
+	
+	
 }
